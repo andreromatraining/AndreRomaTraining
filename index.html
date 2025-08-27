@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hoja de Vida – Jesús Romero</title>
+  <meta name="description" content="Hoja de vida completa en línea (todas las páginas) – Jesús Andrés Romero Cárdenas." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="brand"><span class="dot"></span><span>Portafolio • Jesús Romero</span></div>
+      <nav class="nav">
+        <a href="./">Inicio</a>
+        <a href="assets/hoja-de-vida.pdf" download>Descargar PDF</a>
+        <a href="mailto:jesus_romero80212@elpoli.edu.co">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Hoja de vida</h1>
+      <p>Visualiza el documento completo. Usa el botón de descarga si tu navegador no muestra PDF.</p>
+    </section>
+
+    <section class="card pdf-wrap" id="visor">
+      <div class="pdf-toolbar">
+        <span>Documento • PDF</span>
+        <span class="small">Sugerencia: zoom con <kbd>Ctrl</kbd> + <kbd>+</kbd> / <kbd>-</kbd></span>
+      </div>
+
+      <!--
+        The iframe shows the PDF so ALL pages are visible by scrolling.
+        The hash params suggest a comfortable initial zoom and page fit.
+      -->
+      <iframe class="pdf-frame" src="assets/hoja-de-vida.pdf#view=FitH&zoom=page-fit&toolbar=1&navpanes=1" title="Hoja de vida – PDF"></iframe>
+      <noscript>
+        <div style="padding:16px">
+          Para ver este documento necesitas activar JavaScript o <a href="assets/hoja-de-vida.pdf">descargar el PDF</a>.
+        </div>
+      </noscript>
+    </section>
+
+    <p class="small" style="margin-top:12px;">Si tu navegador no soporta visor PDF integrado, descarga el archivo y ábrelo localmente.</p>
+  </main>
+
+  <footer class="container footer">
+    <div>© <span id="year"></span> Jesús Romero. Todos los derechos reservados.</div>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
