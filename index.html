@@ -3,8 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hoja de Vida - Jesús Romero</title>
+  <title>Andre Roma Training - Hoja de Vida</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Variables de colores */
+    :root {
+      --primary: #3498db;
+      --secondary: #2c3e50;
+      --accent: #e74c3c;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --success: #27ae60;
+      --text: #34495e;
+    }
+    
     /* Estilos generales */
     * {
       margin: 0;
@@ -15,58 +27,92 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      color: #333;
-      background-color: #f5f7f9;
-      padding: 0;
-      margin: 0;
+      color: var(--text);
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
     }
     
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 20px;
     }
     
-    /* Encabezado */
+    /* Header con imagen de fondo deportiva */
     .header {
-      background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+      background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(52, 152, 219, 0.85)), 
+                  url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       color: white;
-      padding: 2.5rem 0;
+      padding: 3rem 2rem;
       text-align: center;
       margin-bottom: 30px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 15px 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
     }
     
     .header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
     
     .header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
+      font-size: 1.4rem;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
     }
     
-    /* Tarjetas */
+    .logo {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 1rem;
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid white;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      line-height: 60px;
+    }
+    
+    /* Tarjetas con efecto de elevación */
     .card {
       background: white;
-      border-radius: 10px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 5px solid var(--primary);
     }
     
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     }
     
     .card h2 {
-      color: #2c3e50;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #3498db;
+      color: var(--secondary);
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+    }
+    
+    .card h2 i {
+      margin-right: 12px;
+      color: var(--primary);
     }
     
     /* Información personal */
@@ -77,64 +123,165 @@
     }
     
     .info-item {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
     }
     
     .info-item strong {
-      color: #2c3e50;
-      display: inline-block;
+      color: var(--secondary);
       min-width: 180px;
+      display: inline-flex;
+      align-items: center;
     }
     
-    /* Competencias */
+    .info-item i {
+      margin-right: 10px;
+      color: var(--primary);
+      width: 20px;
+    }
+    
+    /* Barras de habilidades */
+    .skills-container {
+      margin-top: 20px;
+    }
+    
+    .skill {
+      margin-bottom: 20px;
+    }
+    
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    
+    .skill-bar {
+      height: 10px;
+      background: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .skill-level {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+    }
+    
+    /* Sección de competencias */
     .skills {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      gap: 25px;
     }
     
     .skill-category {
-      background: #f8f9fa;
-      padding: 15px;
-      border-radius: 8px;
-      border-left: 4px solid #3498db;
+      background: var(--light);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--accent);
+      transition: transform 0.3s ease;
     }
     
-    /* Tablas */
+    .skill-category:hover {
+      transform: translateX(5px);
+    }
+    
+    .skill-category h3 {
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .skill-category h3 i {
+      margin-right: 10px;
+      color: var(--accent);
+    }
+    
+    /* Tablas mejoradas */
     table {
       width: 100%;
       border-collapse: collapse;
       margin: 15px 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
     }
     
     th, td {
-      padding: 12px 15px;
+      padding: 15px;
       text-align: left;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #e0e0e0;
     }
     
     th {
-      background-color: #3498db;
+      background-color: var(--primary);
       color: white;
+      font-weight: 600;
     }
     
     tr:nth-child(even) {
       background-color: #f8f9fa;
     }
     
+    tr:hover {
+      background-color: #ebf5fb;
+    }
+    
     /* Footer */
     .footer {
-      background: #2c3e50;
+      background: var(--secondary);
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 30px;
+      margin-top: 50px;
+      border-radius: 15px 15px 0 0;
+    }
+    
+    .social-links {
+      margin-bottom: 20px;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--primary);
+    }
+    
+    /* Botones */
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary);
+    }
+    
+    .btn:hover {
+      background: transparent;
+      color: var(--primary);
     }
     
     /* Responsive */
     @media (max-width: 768px) {
       .header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+      }
+      
+      .header p {
+        font-size: 1.1rem;
       }
       
       .personal-info {
@@ -149,65 +296,156 @@
         display: block;
         overflow-x: auto;
       }
+      
+      .info-item strong {
+        min-width: 150px;
+      }
+    }
+    
+    /* Animaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .card {
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    /* Efectos de impresión */
+    @media print {
+      body {
+        background: white;
+      }
+      
+      .header {
+        background: #2c3e50;
+        color: black;
+        box-shadow: none;
+      }
+      
+      .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+      
+      .btn {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
   <header class="header">
-    <h1>Hoja de Vida</h1>
-    <p>Jesús Andrés Romero Cárdenas</p>
-    <p>Estudiante Práctica Profesional - Profesional en Deportes</p>
+    <div class="header-content">
+      <div class="logo">ART</div>
+      <h1>Andre Roma Training</h1>
+      <p>Jesús Andrés Romero Cárdenas</p>
+      <p>Profesional en Deportes - Especialista en Entrenamiento Deportivo</p>
+      <a href="#contact" class="btn">Contactar</a>
+    </div>
   </header>
 
   <main class="container">
     <!-- Información personal -->
     <section class="card">
-      <h2>Información Personal</h2>
+      <h2><i class="fas fa-user"></i> Información Personal</h2>
       <div class="personal-info">
-        <div class="info-item"><strong>Nombre completo:</strong> Jesús Andrés Romero Cárdenas</div>
-        <div class="info-item"><strong>Cédula de ciudadanía:</strong> 1003004852</div>
-        <div class="info-item"><strong>Fecha de nacimiento:</strong> 01/08/2001</div>
-        <div class="info-item"><strong>Estado civil:</strong> Soltero</div>
-        <div class="info-item"><strong>Dirección:</strong> Carrera 50C #83-51</div>
-        <div class="info-item"><strong>Celular:</strong> 3122299967</div>
-        <div class="info-item"><strong>Email:</strong> jesus_romero80212@elpoli.edu.co</div>
-        <div class="info-item"><strong>Programa académico:</strong> Profesional en Deportes</div>
+        <div class="info-item"><strong><i class="fas fa-id-card"></i> Nombre completo:</strong> Jesús Andrés Romero Cárdenas</div>
+        <div class="info-item"><strong><i class="fas fa-id-card"></i> Cédula:</strong> 1003004852</div>
+        <div class="info-item"><strong><i class="fas fa-birthday-cake"></i> Fecha de nacimiento:</strong> 01/08/2001</div>
+        <div class="info-item"><strong><i class="fas fa-heart"></i> Estado civil:</strong> Soltero</div>
+        <div class="info-item"><strong><i class="fas fa-map-marker-alt"></i> Dirección:</strong> Carrera 50C #83-51</div>
+        <div class="info-item"><strong><i class="fas fa-mobile-alt"></i> Celular:</strong> 3122299967</div>
+        <div class="info-item"><strong><i class="fas fa-envelope"></i> Email:</strong> jesus_romero80212@elpoli.edu.co</div>
+        <div class="info-item"><strong><i class="fas fa-graduation-cap"></i> Programa académico:</strong> Profesional en Deportes</div>
       </div>
     </section>
 
-    <!-- Perfil del practicante -->
+    <!-- Perfil del profesional en deportes -->
     <section class="card">
-      <h2>Perfil del Practicante</h2>
+      <h2><i class="fas fa-dumbbell"></i> Perfil Profesional en Entrenamiento Deportivo</h2>
       <div class="skills">
         <div class="skill-category">
-          <h3>Competencias Personales</h3>
+          <h3><i class="fas fa-brain"></i> Competencias Personales</h3>
           <p>Disciplina, compromiso, perseverancia, trabajo en equipo, liderazgo en campo y fuera de él, empatía con los entrenados y pacientes, comunicación efectiva, resiliencia, proactividad y pasión por el desarrollo físico y humano a través del deporte.</p>
         </div>
         
         <div class="skill-category">
-          <h3>Competencias Académicas</h3>
-          <p>Conocimientos sólidos en anatomía, fisiología del ejercicio, planificación de entrenamientos, biomecánica y procesos de rehabilitación deportiva. Capacidad para diseñar y adaptar rutinas de entrenamiento personalizadas, aplicar principios de prevención de lesiones y evaluar el rendimiento físico de los deportistas. Habilidad para integrar la teoría del entrenamiento con la práctica profesional.</p>
+          <h3><i class="fas fa-book"></i> Competencias Académicas</h3>
+          <p>Conocimientos sólidos en anatomía, fisiología del ejercicio, planificación de entrenamientos, biomecánica y procesos de rehabilitación deportiva. Capacidad para diseñar y adaptar rutinas de entrenamiento personalizadas, aplicar principios de prevención de lesiones y evaluar el rendimiento físico de los deportistas.</p>
         </div>
         
         <div class="skill-category">
-          <h3>Competencias Laborales</h3>
-          <p>Experiencia práctica en la conducción de sesiones de entrenamiento personalizado e individualizado, enfoque en el rendimiento deportivo y la recuperación funcional, capacidad para monitorear progresos, adaptar programas según necesidades específicas, y trabajar de la mano con profesionales de la salud. Dominio de herramientas y metodologías para la mejora del rendimiento físico, la movilidad y la prevención de recaídas combinado con manejo de distintos estilos de masoterapia (sueca, quiromasaje y deportivo). Alto sentido de responsabilidad y orientación a resultados.</p>
+          <h3><i class="fas fa-briefcase"></i> Competencias Laborales</h3>
+          <p>Experiencia práctica en la conducción de sesiones de entrenamiento personalizado e individualizado, enfoque en el rendimiento deportivo y la recuperación funcional, capacidad para monitorear progresos, adaptar programas según necesidades específicas, y trabajar de la mano con profesionales de la salud.</p>
         </div>
       </div>
     </section>
 
-    <!-- Otros estudios -->
+    <!-- Habilidades técnicas -->
     <section class="card">
-      <h2>Otros Estudios Realizados</h2>
+      <h2><i class="fas fa-chart-bar"></i> Habilidades Técnicas</h2>
+      <div class="skills-container">
+        <div class="skill">
+          <div class="skill-info">
+            <span>Planificación de Entrenamientos</span>
+            <span>95%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 95%"></div>
+          </div>
+        </div>
+        
+        <div class="skill">
+          <div class="skill-info">
+            <span>Evaluación del Rendimiento Físico</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 90%"></div>
+          </div>
+        </div>
+        
+        <div class="skill">
+          <div class="skill-info">
+            <span>Rehabilitación Deportiva</span>
+            <span>85%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 85%"></div>
+          </div>
+        </div>
+        
+        <div class="skill">
+          <div class="skill-info">
+            <span>Nutrición Deportiva</span>
+            <span>80%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 80%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formación académica -->
+    <section class="card">
+      <h2><i class="fas fa-graduation-cap"></i> Formación Académica</h2>
       <table>
         <thead>
           <tr>
-            <th>Curso</th>
+            <th>Título</th>
             <th>Institución</th>
-            <th>Año de terminación</th>
+            <th>Año</th>
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>Profesional en Deportes</td>
+            <td>Politecnico Colombiano Jaime Isaza Cadavid</td>
+            <td>En curso</td>
+          </tr>
           <tr>
             <td>Getting Started as a Personal Fitness Trainer</td>
             <td>National Academy of Sports Medicine (NASM)</td>
@@ -219,117 +457,121 @@
 
     <!-- Experiencia laboral -->
     <section class="card">
-      <h2>Experiencia Laboral</h2>
+      <h2><i class="fas fa-briefcase"></i> Experiencia Laboral</h2>
       <table>
         <thead>
           <tr>
             <th>Empresa</th>
             <th>Cargo</th>
             <th>Funciones</th>
-            <th>Tiempo laborado</th>
-            <th>Jefe inmediato</th>
-            <th>Teléfono</th>
+            <th>Duración</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>DoggyFasst</td>
             <td>Fundador/Autónomo</td>
-            <td>Manejo de servicios, manejo de personal, agendamiento de distribuidores, gestión de recursos económicos, asistencia a eventos de plataformas.</td>
+            <td>Manejo de servicios, gestión de personal, administración de recursos</td>
             <td>5 meses</td>
-            <td>Autónomo</td>
-            <td>3122299967</td>
           </tr>
           <tr>
             <td>Restaurante Santa Clara</td>
             <td>Mesero</td>
-            <td>Atención al cliente, manejo de personal, manejo de cuentas y cobro, promoción de servicios, solución de problemas y quejas.</td>
+            <td>Atención al cliente, manejo de cuentas, solución de problemas</td>
             <td>4 años</td>
-            <td>Jose Ivan Rincon Cardona</td>
-            <td>3054338673</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <!-- Referencias laborales -->
+    <!-- Referencias -->
     <section class="card">
-      <h2>Referencias Laborales</h2>
+      <h2><i class="fas fa-handshake"></i> Referencias</h2>
       <table>
         <thead>
           <tr>
-            <th>Nombres y apellidos</th>
-            <th>Entidad</th>
-            <th>Cargo desempeñado</th>
-            <th>Teléfono</th>
-            <th>Email</th>
+            <th>Nombre</th>
+            <th>Relación</th>
+            <th>Contacto</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>John Emmanuel Lopez Esquivel</td>
-            <td>DoggyFasst</td>
-            <td>Representante Legal</td>
+            <td>Representante Legal - DoggyFasst</td>
             <td>3226360021</td>
-            <td>doggyfasst@gmail.com</td>
           </tr>
           <tr>
             <td>Jose Ivan Rincon Cardona</td>
-            <td>Restaurante Santa Clara</td>
-            <td>Gerente</td>
+            <td>Gerente - Restaurante Santa Clara</td>
             <td>3054338673</td>
-            <td>docai01@hotmail.com</td>
           </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- Referencias personales -->
-    <section class="card">
-      <h2>Referencias Personales</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Nombres y apellidos</th>
-            <th>Parentezco</th>
-            <th>Teléfono</th>
-          </tr>
-        </thead>
-        <tbody>
           <tr>
             <td>Maria Camila Restrepo Aguirre</td>
             <td>Pareja</td>
             <td>3022540847</td>
           </tr>
-          <tr>
-            <td>Dolis Cardenas Izquierdo</td>
-            <td>Madre</td>
-            <td>3142392037</td>
-          </tr>
         </tbody>
       </table>
     </section>
 
-    <!-- Competencias en segunda lengua -->
+    <!-- Idiomas -->
     <section class="card">
-      <h2>Competencias en Segunda Lengua</h2>
+      <h2><i class="fas fa-language"></i> Competencias en Idiomas</h2>
       <p><strong>Idioma:</strong> Inglés</p>
-      <div class="personal-info">
-        <div class="info-item"><strong>Lectura:</strong> Excelente</div>
-        <div class="info-item"><strong>Escritura:</strong> Bueno</div>
-        <div class="info-item"><strong>Habla:</strong> Bueno</div>
+      <div class="skills-container">
+        <div class="skill">
+          <div class="skill-info">
+            <span>Comprensión Lectora</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 90%"></div>
+          </div>
+        </div>
+        
+        <div class="skill">
+          <div class="skill-info">
+            <span>Expresión Escrita</span>
+            <span>80%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 80%"></div>
+          </div>
+        </div>
+        
+        <div class="skill">
+          <div class="skill-info">
+            <span>Expresión Oral</span>
+            <span>75%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 75%"></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Fecha de elaboración -->
-    <section class="card">
-      <h2>Fecha de Elaboración</h2>
-      <p>21/06/2025</p>
+    <!-- Información de contacto -->
+    <section id="contact" class="card">
+      <h2><i class="fas fa-envelope"></i> Contacto</h2>
+      <div class="personal-info">
+        <div class="info-item"><strong><i class="fas fa-phone"></i> Teléfono:</strong> 3122299967</div>
+        <div class="info-item"><strong><i class="fas fa-envelope"></i> Email:</strong> jesus_romero80212@elpoli.edu.co</div>
+        <div class="info-item"><strong><i class="fas fa-map-marker-alt"></i> Dirección:</strong> Carrera 50C #83-51, Medellín</div>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© 2025 Jesús Andrés Romero Cárdenas – Todos los derechos reservados.</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>© 2025 Andre Roma Training - Jesús Andrés Romero Cárdenas</p>
+    <p>Profesional en Deportes - Entrenamiento Deportivo Personalizado</p>
   </footer>
 </body>
 </html>
