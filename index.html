@@ -30,6 +30,7 @@
       color: var(--text);
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       min-height: 100vh;
+      padding-bottom: 20px;
     }
     
     .container {
@@ -108,6 +109,7 @@
       border-bottom: 2px solid var(--primary);
       display: flex;
       align-items: center;
+      cursor: pointer;
     }
     
     .card h2 i {
@@ -139,6 +141,17 @@
       margin-right: 10px;
       color: var(--primary);
       width: 20px;
+    }
+    
+    /* Sección desplegable */
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    
+    .collapsible-content.expanded {
+      max-height: 2000px;
     }
     
     /* Barras de habilidades */
@@ -332,6 +345,10 @@
       .btn {
         display: none;
       }
+      
+      .collapsible-content {
+        max-height: none !important;
+      }
     }
   </style>
 </head>
@@ -349,81 +366,93 @@
   <main class="container">
     <!-- Información personal -->
     <section class="card">
-      <h2><i class="fas fa-user"></i> Información Personal</h2>
-      <div class="personal-info">
-        <div class="info-item"><strong><i class="fas fa-id-card"></i> Nombre completo:</strong> Jesús Andrés Romero Cárdenas</div>
-        <div class="info-item"><strong><i class="fas fa-id-card"></i> Cédula:</strong> 1003004852</div>
-        <div class="info-item"><strong><i class="fas fa-birthday-cake"></i> Fecha de nacimiento:</strong> 01/08/2001</div>
-        <div class="info-item"><strong><i class="fas fa-heart"></i> Estado civil:</strong> Soltero</div>
-        <div class="info-item"><strong><i class="fas fa-map-marker-alt"></i> Dirección:</strong> Carrera 50C #83-51</div>
-        <div class="info-item"><strong><i class="fas fa-mobile-alt"></i> Celular:</strong> 3122299967</div>
-        <div class="info-item"><strong><i class="fas fa-envelope"></i> Email:</strong> jesus_romero80212@elpoli.edu.co</div>
-        <div class="info-item"><strong><i class="fas fa-graduation-cap"></i> Programa académico:</strong> Profesional en Deportes</div>
+      <h2 onclick="toggleSection('personal-info')">
+        <i class="fas fa-user"></i> Información Personal <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="personal-info" class="collapsible-content expanded">
+        <div class="personal-info">
+          <div class="info-item"><strong><i class="fas fa-id-card"></i> Nombre completo:</strong> Jesús Andrés Romero Cárdenas</div>
+          <div class="info-item"><strong><i class="fas fa-id-card"></i> Cédula:</strong> 1003004852</div>
+          <div class="info-item"><strong><i class="fas fa-birthday-cake"></i> Fecha de nacimiento:</strong> 01/08/2001</div>
+          <div class="info-item"><strong><i class="fas fa-heart"></i> Estado civil:</strong> Soltero</div>
+          <div class="info-item"><strong><i class="fas fa-map-marker-alt"></i> Dirección:</strong> Carrera 50C #83-51</div>
+          <div class="info-item"><strong><i class="fas fa-mobile-alt"></i> Celular:</strong> 3122299967</div>
+          <div class="info-item"><strong><i class="fas fa-envelope"></i> Email:</strong> jesus_romero80212@elpoli.edu.co</div>
+          <div class="info-item"><strong><i class="fas fa-graduation-cap"></i> Programa académico:</strong> Profesional en Deportes</div>
+        </div>
       </div>
     </section>
 
     <!-- Perfil del profesional en deportes -->
     <section class="card">
-      <h2><i class="fas fa-dumbbell"></i> Perfil Profesional en Entrenamiento Deportivo</h2>
-      <div class="skills">
-        <div class="skill-category">
-          <h3><i class="fas fa-brain"></i> Competencias Personales</h3>
-          <p>Disciplina, compromiso, perseverancia, trabajo en equipo, liderazgo en campo y fuera de él, empatía con los entrenados y pacientes, comunicación efectiva, resiliencia, proactividad y pasión por el desarrollo físico y humano a través del deporte.</p>
-        </div>
-        
-        <div class="skill-category">
-          <h3><i class="fas fa-book"></i> Competencias Académicas</h3>
-          <p>Conocimientos sólidos en anatomía, fisiología del ejercicio, planificación de entrenamientos, biomecánica y procesos de rehabilitación deportiva. Capacidad para diseñar y adaptar rutinas de entrenamiento personalizadas, aplicar principios de prevención de lesiones y evaluar el rendimiento físico de los deportistas.</p>
-        </div>
-        
-        <div class="skill-category">
-          <h3><i class="fas fa-briefcase"></i> Competencias Laborales</h3>
-          <p>Experiencia práctica en la conducción de sesiones de entrenamiento personalizado e individualizado, enfoque en el rendimiento deportivo y la recuperación funcional, capacidad para monitorear progresos, adaptar programas según necesidades específicas, y trabajar de la mano con profesionales de la salud.</p>
+      <h2 onclick="toggleSection('profile')">
+        <i class="fas fa-dumbbell"></i> Perfil Profesional en Entrenamiento Deportivo <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="profile" class="collapsible-content">
+        <div class="skills">
+          <div class="skill-category">
+            <h3><i class="fas fa-brain"></i> Competencias Personales</h3>
+            <p>Disciplina, compromiso, perseverancia, trabajo en equipo, liderazgo en campo y fuera de él, empatía con los entrenados y pacientes, comunicación efectiva, resiliencia, proactividad y pasión por el desarrollo físico y humano a través del deporte.</p>
+          </div>
+          
+          <div class="skill-category">
+            <h3><i class="fas fa-book"></i> Competencias Académicas</h3>
+            <p>Conocimientos sólidos en anatomía, fisiología del ejercicio, planificación de entrenamientos, biomecánica y procesos de rehabilitación deportiva. Capacidad para diseñar y adaptar rutinas de entrenamiento personalizadas, aplicar principios de prevención de lesiones y evaluar el rendimiento físico de los deportistas.</p>
+          </div>
+          
+          <div class="skill-category">
+            <h3><i class="fas fa-briefcase"></i> Competencias Laborales</h3>
+            <p>Experiencia práctica en la conducción de sesiones de entrenamiento personalizado e individualizado, enfoque en el rendimiento deportivo y la recuperación funcional, capacidad para monitorear progresos, adaptar programas según necesidades específicas, y trabajar de la mano con profesionales de la salud.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Habilidades técnicas -->
     <section class="card">
-      <h2><i class="fas fa-chart-bar"></i> Habilidades Técnicas</h2>
-      <div class="skills-container">
-        <div class="skill">
-          <div class="skill-info">
-            <span>Planificación de Entrenamientos</span>
-            <span>95%</span>
+      <h2 onclick="toggleSection('skills')">
+        <i class="fas fa-chart-bar"></i> Habilidades Técnicas <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="skills" class="collapsible-content">
+        <div class="skills-container">
+          <div class="skill">
+            <div class="skill-info">
+              <span>Planificación de Entrenamientos</span>
+              <span>95%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 95%"></div>
+            </div>
           </div>
-          <div class="skill-bar">
-            <div class="skill-level" style="width: 95%"></div>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span>Evaluación del Rendimiento Físico</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 90%"></div>
+            </div>
           </div>
-        </div>
-        
-        <div class="skill">
-          <div class="skill-info">
-            <span>Evaluación del Rendimiento Físico</span>
-            <span>90%</span>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span>Rehabilitación Deportiva</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 85%"></div>
+            </div>
           </div>
-          <div class="skill-bar">
-            <div class="skill-level" style="width: 90%"></div>
-          </div>
-        </div>
-        
-        <div class="skill">
-          <div class="skill-info">
-            <span>Rehabilitación Deportiva</span>
-            <span>85%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-level" style="width: 85%"></div>
-          </div>
-        </div>
-        
-        <div class="skill">
-          <div class="skill-info">
-            <span>Nutrición Deportiva</span>
-            <span>80%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-level" style="width: 80%"></div>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span>Nutrición Deportiva</span>
+              <span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 80%"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -431,122 +460,138 @@
 
     <!-- Formación académica -->
     <section class="card">
-      <h2><i class="fas fa-graduation-cap"></i> Formación Académica</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Título</th>
-            <th>Institución</th>
-            <th>Año</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Profesional en Deportes</td>
-            <td>Politecnico Colombiano Jaime Isaza Cadavid</td>
-            <td>En curso</td>
-          </tr>
-          <tr>
-            <td>Getting Started as a Personal Fitness Trainer</td>
-            <td>National Academy of Sports Medicine (NASM)</td>
-            <td>En curso</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2 onclick="toggleSection('education')">
+        <i class="fas fa-graduation-cap"></i> Formación Académica <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="education" class="collapsible-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Institución</th>
+              <th>Año</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Profesional en Deportes</td>
+              <td>Politecnico Colombiano Jaime Isaza Cadavid</td>
+              <td>En curso</td>
+            </tr>
+            <tr>
+              <td>Getting Started as a Personal Fitness Trainer</td>
+              <td>National Academy of Sports Medicine (NASM)</td>
+              <td>En curso</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- Experiencia laboral -->
     <section class="card">
-      <h2><i class="fas fa-briefcase"></i> Experiencia Laboral</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Empresa</th>
-            <th>Cargo</th>
-            <th>Funciones</th>
-            <th>Duración</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>DoggyFasst</td>
-            <td>Fundador/Autónomo</td>
-            <td>Manejo de servicios, gestión de personal, administración de recursos</td>
-            <td>5 meses</td>
-          </tr>
-          <tr>
-            <td>Restaurante Santa Clara</td>
-            <td>Mesero</td>
-            <td>Atención al cliente, manejo de cuentas, solución de problemas</td>
-            <td>4 años</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2 onclick="toggleSection('experience')">
+        <i class="fas fa-briefcase"></i> Experiencia Laboral <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="experience" class="collapsible-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Empresa</th>
+              <th>Cargo</th>
+              <th>Funciones</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DoggyFasst</td>
+              <td>Fundador/Autónomo</td>
+              <td>Manejo de servicios, gestión de personal, administración de recursos</td>
+              <td>5 meses</td>
+            </tr>
+            <tr>
+              <td>Restaurante Santa Clara</td>
+              <td>Mesero</td>
+              <td>Atención al cliente, manejo de cuentas, solución de problemas</td>
+              <td>4 años</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- Referencias -->
     <section class="card">
-      <h2><i class="fas fa-handshake"></i> Referencias</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Relación</th>
-            <th>Contacto</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>John Emmanuel Lopez Esquivel</td>
-            <td>Representante Legal - DoggyFasst</td>
-            <td>3226360021</td>
-          </tr>
-          <tr>
-            <td>Jose Ivan Rincon Cardona</td>
-            <td>Gerente - Restaurante Santa Clara</td>
-            <td>3054338673</td>
-          </tr>
-          <tr>
-            <td>Maria Camila Restrepo Aguirre</td>
-            <td>Pareja</td>
-            <td>3022540847</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2 onclick="toggleSection('references')">
+        <i class="fas fa-handshake"></i> Referencias <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="references" class="collapsible-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Relación</th>
+              <th>Contacto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Emmanuel Lopez Esquivel</td>
+              <td>Representante Legal - DoggyFasst</td>
+              <td>3226360021</td>
+            </tr>
+            <tr>
+              <td>Jose Ivan Rincon Cardona</td>
+              <td>Gerente - Restaurante Santa Clara</td>
+              <td>3054338673</td>
+            </tr>
+            <tr>
+              <td>Maria Camila Restrepo Aguirre</td>
+              <td>Pareja</td>
+              <td>3022540847</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- Idiomas -->
     <section class="card">
-      <h2><i class="fas fa-language"></i> Competencias en Idiomas</h2>
-      <p><strong>Idioma:</strong> Inglés</p>
-      <div class="skills-container">
-        <div class="skill">
-          <div class="skill-info">
-            <span>Comprensión Lectora</span>
-            <span>90%</span>
+      <h2 onclick="toggleSection('languages')">
+        <i class="fas fa-language"></i> Competencias en Idiomas <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="languages" class="collapsible-content">
+        <p><strong>Idioma:</strong> Inglés</p>
+        <div class="skills-container">
+          <div class="skill">
+            <div class="skill-info">
+              <span>Comprensión Lectora</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 90%"></div>
+            </div>
           </div>
-          <div class="skill-bar">
-            <div class="skill-level" style="width: 90%"></div>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span>Expresión Escrita</span>
+              <span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 80%"></div>
+            </div>
           </div>
-        </div>
-        
-        <div class="skill">
-          <div class="skill-info">
-            <span>Expresión Escrita</span>
-            <span>80%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-level" style="width: 80%"></div>
-          </div>
-        </div>
-        
-        <div class="skill">
-          <div class="skill-info">
-            <span>Expresión Oral</span>
-            <span>75%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-level" style="width: 75%"></div>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span>Expresión Oral</span>
+              <span>75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" style="width: 75%"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -573,5 +618,30 @@
     <p>© 2025 Andre Roma Training - Jesús Andrés Romero Cárdenas</p>
     <p>Profesional en Deportes - Entrenamiento Deportivo Personalizado</p>
   </footer>
+
+  <script>
+    // Función para alternar secciones desplegables
+    function toggleSection(sectionId) {
+      const content = document.getElementById(sectionId);
+      content.classList.toggle('expanded');
+      
+      // Cambiar el icono de flecha
+      const header = content.previousElementSibling;
+      const icon = header.querySelector('.fa-chevron-down');
+      icon.classList.toggle('fa-chevron-down');
+      icon.classList.toggle('fa-chevron-up');
+    }
+    
+    // Inicializar con la sección de información personal expandida
+    document.addEventListener('DOMContentLoaded', function() {
+      // Colapsar todas las secciones excepto la información personal
+      const sections = document.querySelectorAll('.collapsible-content');
+      sections.forEach(section => {
+        if (section.id !== 'personal-info') {
+          section.classList.remove('expanded');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
