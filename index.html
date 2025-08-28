@@ -8,7 +8,7 @@
   <style>
     /* Variables de colores */
     :root {
-      --primary: #3498db;
+      --primary: #01454F; /* Azul petróleo */
       --secondary: #2c3e50;
       --accent: #e74c3c;
       --light: #ecf0f1;
@@ -41,7 +41,7 @@
     
     /* Header con imagen de fondo deportiva */
     .header {
-      background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(52, 152, 219, 0.85)), 
+      background: linear-gradient(rgba(1, 69, 79, 0.85), rgba(44, 62, 80, 0.85)), 
                   url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       color: white;
       padding: 3rem 2rem;
@@ -110,6 +110,12 @@
       display: flex;
       align-items: center;
       cursor: pointer;
+      justify-content: space-between;
+    }
+    
+    .card h2 .section-title {
+      display: flex;
+      align-items: center;
     }
     
     .card h2 i {
@@ -151,35 +157,41 @@
     }
     
     .collapsible-content.expanded {
-      max-height: 2000px;
+      max-height: 3000px;
     }
     
-    /* Barras de habilidades */
+    /* Sistema de estrellas para habilidades */
     .skills-container {
       margin-top: 20px;
     }
     
     .skill {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
     
     .skill-info {
       display: flex;
       justify-content: space-between;
       margin-bottom: 8px;
+      align-items: center;
     }
     
-    .skill-bar {
-      height: 10px;
-      background: #e0e0e0;
-      border-radius: 10px;
-      overflow: hidden;
+    .skill-name {
+      font-weight: 600;
+      color: var(--secondary);
     }
     
     .skill-level {
-      height: 100%;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      border-radius: 10px;
+      display: flex;
+    }
+    
+    .star {
+      color: #ddd;
+      margin-right: 5px;
+    }
+    
+    .star.filled {
+      color: var(--primary);
     }
     
     /* Sección de competencias */
@@ -193,7 +205,7 @@
       background: var(--light);
       padding: 20px;
       border-radius: 10px;
-      border-left: 4px solid var(--accent);
+      border-left: 4px solid var(--primary);
       transition: transform 0.3s ease;
     }
     
@@ -210,7 +222,7 @@
     
     .skill-category h3 i {
       margin-right: 10px;
-      color: var(--accent);
+      color: var(--primary);
     }
     
     /* Tablas mejoradas */
@@ -287,6 +299,18 @@
       color: var(--primary);
     }
     
+    /* Niveles de habilidad con etiquetas */
+    .skill-label {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background-color: var(--primary);
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+    
     /* Responsive */
     @media (max-width: 768px) {
       .header h1 {
@@ -312,6 +336,10 @@
       
       .info-item strong {
         min-width: 150px;
+      }
+      
+      .card h2 {
+        font-size: 1.3rem;
       }
     }
     
@@ -367,7 +395,8 @@
     <!-- Información personal -->
     <section class="card">
       <h2 onclick="toggleSection('personal-info')">
-        <i class="fas fa-user"></i> Información Personal <i class="fas fa-chevron-down"></i>
+        <span class="section-title"><i class="fas fa-user"></i> Información Personal</span>
+        <i class="fas fa-chevron-down"></i>
       </h2>
       <div id="personal-info" class="collapsible-content expanded">
         <div class="personal-info">
@@ -386,7 +415,8 @@
     <!-- Perfil del profesional en deportes -->
     <section class="card">
       <h2 onclick="toggleSection('profile')">
-        <i class="fas fa-dumbbell"></i> Perfil Profesional en Entrenamiento Deportivo <i class="fas fa-chevron-down"></i>
+        <span class="section-title"><i class="fas fa-dumbbell"></i> Perfil Profesional en Entrenamiento Deportivo</span>
+        <i class="fas fa-chevron-down"></i>
       </h2>
       <div id="profile" class="collapsible-content">
         <div class="skills">
@@ -411,47 +441,64 @@
     <!-- Habilidades técnicas -->
     <section class="card">
       <h2 onclick="toggleSection('skills')">
-        <i class="fas fa-chart-bar"></i> Habilidades Técnicas <i class="fas fa-chevron-down"></i>
+        <span class="section-title"><i class="fas fa-chart-bar"></i> Habilidades Técnicas</span>
+        <i class="fas fa-chevron-down"></i>
       </h2>
       <div id="skills" class="collapsible-content">
         <div class="skills-container">
           <div class="skill">
             <div class="skill-info">
-              <span>Planificación de Entrenamientos</span>
-              <span>95%</span>
+              <span class="skill-name">Planificación de Entrenamientos</span>
+              <span class="skill-label">Experto</span>
             </div>
-            <div class="skill-bar">
-              <div class="skill-level" style="width: 95%"></div>
-            </div>
-          </div>
-          
-          <div class="skill">
-            <div class="skill-info">
-              <span>Evaluación del Rendimiento Físico</span>
-              <span>90%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-level" style="width: 90%"></div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
             </div>
           </div>
           
           <div class="skill">
             <div class="skill-info">
-              <span>Rehabilitación Deportiva</span>
-              <span>85%</span>
+              <span class="skill-name">Evaluación del Rendimiento Físico</span>
+              <span class="skill-label">Avanzado</span>
             </div>
-            <div class="skill-bar">
-              <div class="skill-level" style="width: 85%"></div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
             </div>
           </div>
           
           <div class="skill">
             <div class="skill-info">
-              <span>Nutrición Deportiva</span>
-              <span>80%</span>
+              <span class="skill-name">Rehabilitación Deportiva</span>
+              <span class="skill-label">Avanzado</span>
             </div>
-            <div class="skill-bar">
-              <div class="skill-level" style="width: 80%"></div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span class="skill-name">Nutrición Deportiva</span>
+              <span class="skill-label">Intermedio</span>
+            </div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
             </div>
           </div>
         </div>
@@ -461,7 +508,8 @@
     <!-- Formación académica -->
     <section class="card">
       <h2 onclick="toggleSection('education')">
-        <i class="fas fa-graduation-cap"></i> Formación Académica <i class="fas fa-chevron-down"></i>
+        <span class="section-title"><i class="fas fa-graduation-cap"></i> Formación Académica</span>
+        <i class="fas fa-chevron-down"></i>
       </h2>
       <div id="education" class="collapsible-content">
         <table>
@@ -491,7 +539,8 @@
     <!-- Experiencia laboral -->
     <section class="card">
       <h2 onclick="toggleSection('experience')">
-        <i class="fas fa-briefcase"></i> Experiencia Laboral <i class="fas fa-chevron-down"></i>
+        <span class="section-title"><i class="fas fa-briefcase"></i> Experiencia Laboral</span>
+        <i class="fas fa-chevron-down"></i>
       </h2>
       <div id="experience" class="collapsible-content">
         <table>
@@ -524,7 +573,8 @@
     <!-- Referencias -->
     <section class="card">
       <h2 onclick="toggleSection('references')">
-        <i class="fas fa-handshake"></i> Referencias <i class="fas fa-chevron-down"></i>
+        <span class="section-title"><i class="fas fa-handshake"></i> Referencias</span>
+        <i class="fas fa-chevron-down"></i>
       </h2>
       <div id="references" class="collapsible-content">
         <table>
@@ -559,38 +609,50 @@
     <!-- Idiomas -->
     <section class="card">
       <h2 onclick="toggleSection('languages')">
-        <i class="fas fa-language"></i> Competencias en Idiomas <i class="fas fa-chevron-down"></i>
+        <span class="section-title"><i class="fas fa-language"></i> Competencias en Idiomas</span>
+        <i class="fas fa-chevron-down"></i>
       </h2>
       <div id="languages" class="collapsible-content">
-        <p><strong>Idioma:</strong> Inglés</p>
         <div class="skills-container">
           <div class="skill">
             <div class="skill-info">
-              <span>Comprensión Lectora</span>
-              <span>90%</span>
+              <span class="skill-name">Inglés - Comprensión Lectora</span>
+              <span class="skill-label">Avanzado</span>
             </div>
-            <div class="skill-bar">
-              <div class="skill-level" style="width: 90%"></div>
-            </div>
-          </div>
-          
-          <div class="skill">
-            <div class="skill-info">
-              <span>Expresión Escrita</span>
-              <span>80%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-level" style="width: 80%"></div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
             </div>
           </div>
           
           <div class="skill">
             <div class="skill-info">
-              <span>Expresión Oral</span>
-              <span>75%</span>
+              <span class="skill-name">Inglés - Expresión Escrita</span>
+              <span class="skill-label">Intermedio</span>
             </div>
-            <div class="skill-bar">
-              <div class="skill-level" style="width: 75%"></div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span class="skill-name">Inglés - Expresión Oral</span>
+              <span class="skill-label">Intermedio</span>
+            </div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
             </div>
           </div>
         </div>
@@ -599,7 +661,9 @@
 
     <!-- Información de contacto -->
     <section id="contact" class="card">
-      <h2><i class="fas fa-envelope"></i> Contacto</h2>
+      <h2>
+        <span class="section-title"><i class="fas fa-envelope"></i> Contacto</span>
+      </h2>
       <div class="personal-info">
         <div class="info-item"><strong><i class="fas fa-phone"></i> Teléfono:</strong> 3122299967</div>
         <div class="info-item"><strong><i class="fas fa-envelope"></i> Email:</strong> jesus_romero80212@elpoli.edu.co</div>
@@ -628,8 +692,10 @@
       // Cambiar el icono de flecha
       const header = content.previousElementSibling;
       const icon = header.querySelector('.fa-chevron-down');
-      icon.classList.toggle('fa-chevron-down');
-      icon.classList.toggle('fa-chevron-up');
+      if (icon) {
+        icon.classList.toggle('fa-chevron-down');
+        icon.classList.toggle('fa-chevron-up');
+      }
     }
     
     // Inicializar con la sección de información personal expandida
