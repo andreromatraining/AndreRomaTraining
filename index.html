@@ -1,63 +1,335 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Hoja de Vida – Jesús Romero</title>
-  <link rel="stylesheet" href="css/styles.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoja de Vida - Jesús Romero</title>
+  <style>
+    /* Estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f7f9;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Encabezado */
+    .header {
+      background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+      color: white;
+      padding: 2.5rem 0;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    /* Tarjetas */
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    
+    .card h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #3498db;
+    }
+    
+    /* Información personal */
+    .personal-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    
+    .info-item {
+      margin-bottom: 10px;
+    }
+    
+    .info-item strong {
+      color: #2c3e50;
+      display: inline-block;
+      min-width: 180px;
+    }
+    
+    /* Competencias */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .skill-category {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #3498db;
+    }
+    
+    /* Tablas */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    /* Footer */
+    .footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .personal-info {
+        grid-template-columns: 1fr;
+      }
+      
+      .skills {
+        grid-template-columns: 1fr;
+      }
+      
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="header">
     <h1>Hoja de Vida</h1>
     <p>Jesús Andrés Romero Cárdenas</p>
+    <p>Estudiante Práctica Profesional - Profesional en Deportes</p>
   </header>
 
-<main class="container">
-  <section class="card">
-    <h2>Hoja de Vida Completa</h2>
-    <img src="img/pages/Imagen pagina 1..jpg" alt="Página 1" style="width:100%;margin-bottom:20px;">
-    <img src="img/pages/Imagen pagina 2.jpg" alt="Página 2" style="width:100%;margin-bottom:20px;">
-    <img src="img/pages/Imagen pagina 3.jpg" alt="Página 3" style="width:100%;margin-bottom:20px;">
-    <img src="img/pages/Imagen pagina 4.jpg" alt="Página 4" style="width:100%;margin-bottom:20px;">
-  </section>
-</main>
-
-</main>
-
-        <li><strong>Nombre:</strong> Jesús Andrés Romero Cárdenas</li>
-        <li><strong>Cédula:</strong> 1003004852</li>
-        <li><strong>Fecha de nacimiento:</strong> 01/08/2001</li>
-        <li><strong>Estado civil:</strong> Soltero</li>
-        <li><strong>Dirección:</strong> Carrera 50C#83-51</li>
-        <li><strong>Teléfono:</strong> [3122299967]</li>
-        <li><strong>Email:</strong> jesus_romero80212@elpoli.edu.co</li>
-      </ul>
+  <main class="container">
+    <!-- Información personal -->
+    <section class="card">
+      <h2>Información Personal</h2>
+      <div class="personal-info">
+        <div class="info-item"><strong>Nombre completo:</strong> Jesús Andrés Romero Cárdenas</div>
+        <div class="info-item"><strong>Cédula de ciudadanía:</strong> 1003004852</div>
+        <div class="info-item"><strong>Fecha de nacimiento:</strong> 01/08/2001</div>
+        <div class="info-item"><strong>Estado civil:</strong> Soltero</div>
+        <div class="info-item"><strong>Dirección:</strong> Carrera 50C #83-51</div>
+        <div class="info-item"><strong>Celular:</strong> 3122299967</div>
+        <div class="info-item"><strong>Email:</strong> jesus_romero80212@elpoli.edu.co</div>
+        <div class="info-item"><strong>Programa académico:</strong> Profesional en Deportes</div>
+      </div>
     </section>
 
-    <!-- Formación -->
+    <!-- Perfil del practicante -->
     <section class="card">
-      <h2>Formación Académica</h2>
-      <p>Estudiante Práctica Profesional – Politécnico Jaime Isaza Cadavid</p>
-      <p>Programa: Profesional en deportes</p>
+      <h2>Perfil del Practicante</h2>
+      <div class="skills">
+        <div class="skill-category">
+          <h3>Competencias Personales</h3>
+          <p>Disciplina, compromiso, perseverancia, trabajo en equipo, liderazgo en campo y fuera de él, empatía con los entrenados y pacientes, comunicación efectiva, resiliencia, proactividad y pasión por el desarrollo físico y humano a través del deporte.</p>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Competencias Académicas</h3>
+          <p>Conocimientos sólidos en anatomía, fisiología del ejercicio, planificación de entrenamientos, biomecánica y procesos de rehabilitación deportiva. Capacidad para diseñar y adaptar rutinas de entrenamiento personalizadas, aplicar principios de prevención de lesiones y evaluar el rendimiento físico de los deportistas. Habilidad para integrar la teoría del entrenamiento con la práctica profesional.</p>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Competencias Laborales</h3>
+          <p>Experiencia práctica en la conducción de sesiones de entrenamiento personalizado e individualizado, enfoque en el rendimiento deportivo y la recuperación funcional, capacidad para monitorear progresos, adaptar programas según necesidades específicas, y trabajar de la mano con profesionales de la salud. Dominio de herramientas y metodologías para la mejora del rendimiento físico, la movilidad y la prevención de recaídas combinado con manejo de distintos estilos de masoterapia (sueca, quiromasaje y deportivo). Alto sentido de responsabilidad y orientación a resultados.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Experiencia -->
+    <!-- Otros estudios -->
     <section class="card">
-      <h2>Experiencia</h2>
-      <p>[Aquí puedes listar tus experiencias de práctica, proyectos o trabajos]</p>
+      <h2>Otros Estudios Realizados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Curso</th>
+            <th>Institución</th>
+            <th>Año de terminación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Getting Started as a Personal Fitness Trainer</td>
+            <td>National Academy of Sports Medicine (NASM)</td>
+            <td>En curso</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
-    <!-- Referencias -->
+    <!-- Experiencia laboral -->
     <section class="card">
-      <h2>Referencias</h2>
-      <p>[Coloca tus referencias personales o laborales si aplica]</p>
+      <h2>Experiencia Laboral</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Empresa</th>
+            <th>Cargo</th>
+            <th>Funciones</th>
+            <th>Tiempo laborado</th>
+            <th>Jefe inmediato</th>
+            <th>Teléfono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DoggyFasst</td>
+            <td>Fundador/Autónomo</td>
+            <td>Manejo de servicios, manejo de personal, agendamiento de distribuidores, gestión de recursos económicos, asistencia a eventos de plataformas.</td>
+            <td>5 meses</td>
+            <td>Autónomo</td>
+            <td>3122299967</td>
+          </tr>
+          <tr>
+            <td>Restaurante Santa Clara</td>
+            <td>Mesero</td>
+            <td>Atención al cliente, manejo de personal, manejo de cuentas y cobro, promoción de servicios, solución de problemas y quejas.</td>
+            <td>4 años</td>
+            <td>Jose Ivan Rincon Cardona</td>
+            <td>3054338673</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Referencias laborales -->
+    <section class="card">
+      <h2>Referencias Laborales</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombres y apellidos</th>
+            <th>Entidad</th>
+            <th>Cargo desempeñado</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Emmanuel Lopez Esquivel</td>
+            <td>DoggyFasst</td>
+            <td>Representante Legal</td>
+            <td>3226360021</td>
+            <td>doggyfasst@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Jose Ivan Rincon Cardona</td>
+            <td>Restaurante Santa Clara</td>
+            <td>Gerente</td>
+            <td>3054338673</td>
+            <td>docai01@hotmail.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Referencias personales -->
+    <section class="card">
+      <h2>Referencias Personales</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombres y apellidos</th>
+            <th>Parentezco</th>
+            <th>Teléfono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Maria Camila Restrepo Aguirre</td>
+            <td>Pareja</td>
+            <td>3022540847</td>
+          </tr>
+          <tr>
+            <td>Dolis Cardenas Izquierdo</td>
+            <td>Madre</td>
+            <td>3142392037</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Competencias en segunda lengua -->
+    <section class="card">
+      <h2>Competencias en Segunda Lengua</h2>
+      <p><strong>Idioma:</strong> Inglés</p>
+      <div class="personal-info">
+        <div class="info-item"><strong>Lectura:</strong> Excelente</div>
+        <div class="info-item"><strong>Escritura:</strong> Bueno</div>
+        <div class="info-item"><strong>Habla:</strong> Bueno</div>
+      </div>
+    </section>
+
+    <!-- Fecha de elaboración -->
+    <section class="card">
+      <h2>Fecha de Elaboración</h2>
+      <p>21/06/2025</p>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© 2025 Jesús Romero – Todos los derechos reservados.</p>
+    <p>© 2025 Jesús Andrés Romero Cárdenas – Todos los derechos reservados.</p>
   </footer>
 </body>
-</html>
-
 </html>
