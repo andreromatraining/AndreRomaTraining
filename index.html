@@ -574,7 +574,7 @@
       </div>
     </section>
 
-    <!-- NUEVA SECCIÓN: Logros Deportivos (corregida) -->
+    <!-- NUEVA SECCIÓN: Logros Deportivos -->
     <section class="card">
       <h2 onclick="toggleSection('achievements')">
         <span class="section-title"><i class="fas fa-trophy"></i> Logros Deportivos</span>
@@ -733,14 +733,6 @@
       sections.forEach(section => {
         if (section.id !== 'personal-info') {
           section.classList.remove('expanded');
-        }
-      });
-      
-      // Asegurarse de que todas las secciones tengan la clase correcta
-      document.querySelectorAll('.card h2').forEach(header => {
-        const content = header.nextElementSibling;
-        if (!content.classList.contains('collapsible-content')) {
-          content.classList.add('collapsible-content');
         }
       });
     });
