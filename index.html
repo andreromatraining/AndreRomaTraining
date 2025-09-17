@@ -339,6 +339,812 @@
       margin-bottom: 8px;
     }
     
+    /* Estilos para el mapa */
+    .mapa-container {
+      margin: 25px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mapa-container iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+    
+    .mapa-titulo {
+      text-align: center;
+      margin-bottom: 15px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .header p {
+        font-size: 1.1rem;
+      }
+      
+      .personal-info {
+        grid-template-columns: 1fr;
+      }
+      
+      .skills {
+        grid-template-columns: 1fr;
+      }
+      
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+      
+      .info-item strong {
+        min-width: 150px;
+      }
+      
+      .card h2 {
+        font-size: 1.3rem;
+      }
+      
+      .mapa-container iframe {
+        height: 300px;
+      }
+    }
+    
+    /* Animaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .card {
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    /* Efectos de impresión */
+    @media print {
+      body {
+        background: white;
+      }
+      
+      .header {
+        background: #2c3e50;
+        color: black;
+        box-shadow: none;
+      }
+      
+      .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+      
+      .btn {
+        display: none;
+      }
+      
+      .collapsible-content {
+        max-height: none !important;
+      }
+      
+      .mapa-container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">ART</div>
+      <h1>Andre Roma Training</h1>
+      <p>Jesús Andrés Romero Cárdenas</p>
+      <p>Profesional en Deportes - Especialista en Entrenamiento Deportivo</p>
+      <a href="#contact" class="btn">Contactar</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Información personal -->
+    <section class="card">
+      <h2 onclick="toggleSection('personal-info')">
+        <span class="section-title"><i class="fas fa-user"></i> Información Personal</span>
+        <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="personal-info" class="collapsible-content expanded">
+        <div class="personal-info">
+          <div class="info-item"><strong><i class="fas fa-id-card"></i> Nombre completo:</strong> Jesús Andrés Romero Cárdenas</div>
+          <div class="info-item"><strong><i class="fas fa-id-card"></i> Cédula:</strong> 1003004852</div>
+          <div class="info-item"><strong><i class="fas fa-birthday-cake"></i> Fecha de nacimiento:</strong> 01/08/2001</div>
+          <div class="info-item"><strong><i class="fas fa-heart"></i> Estado civil:</strong> Soltero</div>
+          <div class="info-item"><strong><i class="fas fa-map-marker-alt"></i> Dirección:</strong> Carrera 50C #83-51</div>
+          <div class="info-item"><strong><i class="fas fa-mobile-alt"></i> Celular:</strong> 3122299967</div>
+          <div class="info-item"><strong><i class="fas fa-envelope"></i> Email:</strong> jesus_romero80212@elpoli.edu.co</div>
+          <div class="info-item"><strong><i class="fas fa-graduation-cap"></i> Programa académico:</strong> Profesional en Deportes</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Perfil del profesional en deportes -->
+    <section class="card">
+      <h2 onclick="toggleSection('profile')">
+        <span class="section-title"><i class="fas fa-dumbbell"></i> Perfil Profesional en Entrenamiento Deportivo</span>
+        <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="profile" class="collapsible-content">
+        <div class="skills">
+          <div class="skill-category">
+            <h3><i class="fas fa-brain"></i> Competencias Personales</h3>
+            <p>Disciplina, compromiso, perseverancia, trabajo en equipo, liderazgo en campo y fuera de él, empatía con los entrenados y pacientes, comunicación efectiva, resiliencia, proactividad y pasión por el desarrollo físico y humano a través del deporte.</p>
+          </div>
+          
+          <div class="skill-category">
+            <h3><i class="fas fa-book"></i> Competencias Académicas</h3>
+            <p>Conocimientos sólidos en anatomía, fisiología del ejercicio, planificación de entrenamientos, biomecánica y procesos de rehabilitación deportiva. Capacidad para diseñar y adaptar rutinas de entrenamiento personalizadas, aplicar principios de prevención de lesiones y evaluar el rendimiento físico de los deportistas.</p>
+          </div>
+          
+          <div class="skill-category">
+            <h3><i class="fas fa-briefcase"></i> Competencias Laborales</h3>
+            <p>Experiencia práctica en la conducción de sesiones de entrenamiento personalizado e individualizado, enfoque en el rendimiento deportivo y la recuperación funcional, capacidad para monitorear progresos, adaptar programas según necesidades específicas, y trabajar de la mano con profesionales de la salud.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Habilidades técnicas -->
+    <section class="card">
+      <h2 onclick="toggleSection('skills')">
+        <span class="section-title"><i class="fas fa-chart-bar"></i> Habilidades Técnicas</span>
+        <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="skills" class="collapsible-content">
+        <div class="skills-container">
+          <div class="skill">
+            <div class="skill-info">
+              <span class="skill-name">Planificación de Entrenamientos</span>
+              <span class="skill-label">Experto</span>
+            </div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span class="skill-name">Evaluación del Rendimiento Físico</span>
+              <span class="skill-label">Avanzado</span>
+            </div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span class="skill-name">Rehabilitación Deportiva</span>
+              <span class="skill-label">Avanzado</span>
+            </div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span class="skill-name">Nutrición Deportiva</span>
+              <span class="skill-label">Intermedio</span>
+            </div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formación académica -->
+    <section class="card">
+      <h2 onclick="toggleSection('education')">
+        <span class="section-title"><i class="fas fa-graduation-cap"></i> Formación Académica</span>
+        <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="education" class="collapsible-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Institución</th>
+              <th>Año</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Profesional en Deportes</td>
+              <td>Politecnico Colombiano Jaime Isaza Cadavid</td>
+              <td>En curso</td>
+            </tr>
+            <tr>
+              <td>Getting Started as a Personal Fitness Trainer</td>
+              <td>National Academy of Sports Medicine (NASM)</td>
+              <td>En curso</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Experiencia laboral -->
+    <section class="card">
+      <h2 onclick="toggleSection('experience')">
+        <span class="section-title"><i class="fas fa-briefcase"></i> Experiencia Laboral</span>
+        <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="experience" class="collapsible-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Empresa</th>
+              <th>Cargo</th>
+              <th>Funciones</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DoggyFasst</td>
+              <td>Fundador/Autónomo</td>
+              <td>Manejo de servicios, gestión de personal, administración de recursos</td>
+              <td>5 meses</td>
+            </tr>
+            <tr>
+              <td>Restaurante Santa Clara</td>
+              <td>Mesero</td>
+              <td>Atención al cliente, manejo de cuentas, solución de problemas</td>
+              <td>4 años</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE DIAGNÓSTICO -->
+    <section class="card">
+      <h2 onclick="toggleSection('diagnostico')">
+        <span class="section-title"><i class="fas fa-clipboard-check"></i> Diagnóstico - Centro de Práctica DIM</span>
+        <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="diagnostico" class="collapsible-content">
+        <div class="diagnostico-section">
+          <p><strong>Población atendida:</strong> Aproximadamente 40 niños y adolescentes entre las categorías sub-14 y sub-17, en etapa de formación deportiva intermedia y avanzada.</p>
+          
+          <p><strong>Infraestructura y recursos:</strong> El centro cuenta con un espacio reducido que limita el trabajo colectivo, aunque dispone de algunas máquinas de musculación y mancuernas. Estos recursos permiten desarrollar ejercicios básicos de fuerza y fortalecimiento del core, fundamentales para el rendimiento futbolístico y la prevención de lesiones. Sin embargo, se evidencia carencia de implementos funcionales como bandas, balones medicinales, conos y escaleras de coordinación, lo que restringe la variabilidad del entrenamiento.</p>
+          
+          <!-- Mapa de ubicación -->
+          <div class="mapa-titulo">
+            <i class="fas fa-map-marked-alt"></i> Ubicación del centro de práctica
+          </div>
+          <div class="mapa-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d914.848088562073!2d-75.62621982179006!3d6.172758755215216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4681001545fb91%3A0x8d462b307c6f5f06!2sSede%20institucional%20y%20deportiva%20de%20El%20Equipo%20del%20Pueblo%20S.A.!5e0!3m2!1ses!2sco!4v1758138252225!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          
+          <div class="diagnostico-item">
+            <h3><i class="fas fa-plus-circle"></i> Fortalezas</h3>
+            <ul class="diagnostico-lista">
+              <li>Grupo estable de jugadores en edades sensibles para el desarrollo de la fuerza y la coordinación.</li>
+              <li>Disponibilidad mínima de recursos para entrenamientos de musculación y estabilidad central.</li>
+              <li>Posibilidad de complementar el trabajo técnico-táctico con preparación física.</li>
+            </ul>
+          </div>
+          
+          <div class="diagnostico-item">
+            <h3><i class="fas fa-minus-circle"></i> Debilidades</h3>
+            <ul class="diagnostico-lista">
+              <li>Limitación de espacio para entrenamientos dinámicos o colectivos.</li>
+              <li>Poca diversidad de materiales, lo que reduce la especificidad del trabajo.</li>
+              <li>Riesgo de monotonía y sobrecarga si no se varía la metodología.</li>
+            </ul>
+          </div>
+          
+          <div class="diagnostico-item">
+            <h3><i class="fas fa-arrow-up"></i> Oportunidades</h3>
+            <ul class="diagnostico-lista">
+              <li>Implementación de entrenamientos funcionales adaptados al espacio reducido.</li>
+              <li>Desarrollo de programas de prevención de lesiones (rodilla, cadera, zona core).</li>
+              <li>Posible gestión de convenios con espacios más amplios o dotados.</li>
+            </ul>
+          </div>
+          
+          <div class="diagnostico-item">
+            <h3><i class="fas fa-exclamation-triangle"></i> Amenazas</h3>
+            <ul class="diagnostico-lista">
+              <li>Desmotivación de los jugadores por falta de variedad en los entrenamientos.</li>
+              <li>Restricciones para aplicar métodos avanzados de preparación física.</li>
+              <li>Potencial uso inadecuado de máquinas en jugadores jóvenes si no se controla la técnica.</li>
+            </ul>
+          </div>
+          
+          <div class="diagnostico-item">
+            <h3><i class="fas fa-check-circle"></i> Conclusión</h3>
+            <p>El centro de práctica del DIM presenta condiciones básicas para el desarrollo de fuerza y core en jóvenes futbolistas, pero requiere optimizar el uso del espacio y diversificar los métodos de trabajo. Es clave priorizar ejercicios funcionales, preventivos y creativos que no dependan exclusivamente de máquinas, de manera que se potencie el rendimiento y la formación integral de los jugadores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referencias -->
+    <section class="card">
+      <h2 onclick="toggleSection('references')">
+        <span class="section-title"><i class="fas fa-handshake"></i> Referencias</span>
+        <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="references" class="collapsible-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Relación</th>
+              <th>Contacto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Emmanuel Lopez Esquivel</td>
+              <td>Representante Legal - DoggyFasst</td>
+              <td>3226360021</td>
+            </tr>
+            <tr>
+              <td>Jose Ivan Rincon Cardona</td>
+              <td>Gerente - Restaurante Santa Clara</td>
+              <td>3054338673</td>
+            </tr>
+            <tr>
+              <td>Maria Camila Restrepo Aguirre</td>
+              <td>Pareja</td>
+              <td>3022540847</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Idiomas -->
+    <section class="card">
+      <h2 onclick="toggleSection('languages')">
+        <span class="section-title"><i class="fas fa-language"></i> Competencias en Idiomas</span>
+        <i class="fas fa-chevron-down"></i>
+      </h2>
+      <div id="languages" class="collapsible-content">
+        <div class="skills-container">
+          <div class="skill">
+            <div class="skill-info">
+              <span class="skill-name">Inglés - Comprensión Lectora</span>
+              <span class="skill-label">Avanzado</span>
+            </div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span class="skill-name">Inglés - Expresión Escrita</span>
+              <span class="skill-label">Intermedio</span>
+            </div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+          
+          <div class="skill">
+            <div class="skill-info">
+              <span class="skill-name">Inglés - Expresión Oral</span>
+              <span class="skill-label">Intermedio</span>
+            </div>
+            <div class="skill-level">
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star filled"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Información de contacto -->
+    <section id="contact" class="card">
+      <h2>
+        <span class="section-title"><i class="fas fa-envelope"></i> Contacto</span>
+      </h2>
+      <div class="personal-info">
+        <div class="info-item"><strong><i class="fas fa-phone"></i> Teléfono:</strong> 3122299967</div>
+        <div class="info-item"><strong><i class="fas fa-envelope"></i> Email:</strong> jesus_romero80212@elpoli.edu.co</div>
+        <div class="info-item"><strong><i class="fas fa-map-marker-alt"></i> Dirección:</strong> Carrera 50C #83-51, Medellín</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="social-links">
+      <!-- ENLACE CORREGIDO A TU PERFIL DE INSTAGRAM -->
+      <a href="https://www.instagram.com/andreroma24/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>© 2025 Andre Roma Training - Jesús Andrés Romero Cárdenas</p>
+    <p>Profesional en Deportes - Entrenamiento Deportivo Personalizado</p>
+  </footer>
+
+  <script>
+    // Función para alternar secciones desplegables
+    function toggleSection(sectionId) {
+      const content = document.getElementById(sectionId);
+      content.classList.toggle('expanded');
+      
+      // Cambiar el icono de flecha
+      const header = content.previousElementSibling;
+      const icon = header.querySelector('.fa-chevron-down');
+      if (icon) {
+        icon.classList.toggle('fa-chevron-down');
+        icon.classList.toggle('fa-chevron-up');
+      }
+    }
+    
+    // Inicializar con la sección de información personal expandida
+    document.addEventListener('DOMContentLoaded', function() {
+      // Colapsar todas las secciones excepto la información personal
+      const sections = document.querySelectorAll('.collapsible-content');
+      sections.forEach(section => {
+        if (section.id !== 'personal-info') {
+          section.classList.remove('expanded');
+        }
+      });
+      
+      // Asegurarse de que todas las secciones tengan la clase correcta
+      document.querySelectorAll('.card h2').forEach(header => {
+        const content = header.nextElementSibling;
+        if (!content.classList.contains('collapsible-content')) {
+          content.classList.add('collapsible-content');
+        }
+      });
+    });
+  </script>
+</body>
+</html>      padding-bottom: 20px;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Header con imagen de fondo deportiva */
+    .header {
+      background: linear-gradient(rgba(1, 69, 79, 0.85), rgba(44, 62, 80, 0.85)), 
+                  url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 30px;
+      border-radius: 0 0 15px 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .header p {
+      font-size: 1.4rem;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+    }
+    
+    .logo {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 1rem;
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid white;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      line-height: 60px;
+    }
+    
+    /* Tarjetas con efecto de elevación */
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 5px solid var(--primary);
+    }
+    
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card h2 {
+      color: var(--secondary);
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      justify-content: space-between;
+    }
+    
+    .card h2 .section-title {
+      display: flex;
+      align-items: center;
+    }
+    
+    .card h2 i {
+      margin-right: 12px;
+      color: var(--primary);
+    }
+    
+    /* Información personal */
+    .personal-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    
+    .info-item {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .info-item strong {
+      color: var(--secondary);
+      min-width: 180px;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .info-item i {
+      margin-right: 10px;
+      color: var(--primary);
+      width: 20px;
+    }
+    
+    /* Sección desplegable */
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    
+    .collapsible-content.expanded {
+      max-height: 3000px;
+    }
+    
+    /* Sistema de estrellas para habilidades */
+    .skills-container {
+      margin-top: 20px;
+    }
+    
+    .skill {
+      margin-bottom: 25px;
+    }
+    
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+    
+    .skill-name {
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    
+    .skill-level {
+      display: flex;
+    }
+    
+    .star {
+      color: #ddd;
+      margin-right: 5px;
+    }
+    
+    .star.filled {
+      color: var(--primary);
+    }
+    
+    /* Sección de competencias */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    
+    .skill-category {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--primary);
+      transition: transform 0.3s ease;
+    }
+    
+    .skill-category:hover {
+      transform: translateX(5px);
+    }
+    
+    .skill-category h3 {
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .skill-category h3 i {
+      margin-right: 10px;
+      color: var(--primary);
+    }
+    
+    /* Tablas mejoradas */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    th {
+      background-color: var(--primary);
+      color: white;
+      font-weight: 600;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    tr:hover {
+      background-color: #ebf5fb;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--secondary);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+      border-radius: 15px 15px 0 0;
+    }
+    
+    .social-links {
+      margin-bottom: 20px;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--primary);
+    }
+    
+    /* Botones */
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary);
+    }
+    
+    .btn:hover {
+      background: transparent;
+      color: var(--primary);
+    }
+    
+    /* Niveles de habilidad con etiquetas */
+    .skill-label {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background-color: var(--primary);
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+    
+    /* Estilos para la sección de diagnóstico */
+    .diagnostico-section {
+      margin-top: 20px;
+    }
+    
+    .diagnostico-item {
+      margin-bottom: 25px;
+    }
+    
+    .diagnostico-item h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .diagnostico-lista {
+      margin-left: 20px;
+    }
+    
+    .diagnostico-lista li {
+      margin-bottom: 8px;
+    }
+    
     /* Responsive */
     @media (max-width: 768px) {
       .header h1 {
